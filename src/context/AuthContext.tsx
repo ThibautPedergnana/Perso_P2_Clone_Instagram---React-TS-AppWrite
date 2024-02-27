@@ -14,7 +14,7 @@ export const INITIAL_USER = {
 
 const INITIAL_STATE = {
   user: INITIAL_USER,
-  isLoading: false,
+  isPending: false,
   isAuthenticated: false,
   setUser: () => {},
   setIsAuthenticated: () => {},
@@ -25,7 +25,7 @@ const AuthContext = createContext<IContextType>(INITIAL_STATE);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<IUser>(INITIAL_USER);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       console.log(error);
       return false;
     } finally {
-      setIsLoading(false);
+      setIsPending(false);
     }
   };
 
@@ -71,7 +71,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     user,
     setUser,
     setIsAuthenticated,
-    isLoading,
+    isPending,
     isAuthenticated,
     checkAuthUser,
   };
