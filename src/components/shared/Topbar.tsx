@@ -35,7 +35,7 @@ const Topbar = () => {
           </Button>
           <Link to={`/profile/${user.id}`}>
             <img
-              src={user.imageUrl || "/assests/images/profile-placeholder.svg"}
+              src={user.imageUrl || "/assests/icons/profile-placeholder.svg"}
               alt="profile"
               className="h-8 w-8 rounded-full"
             />
